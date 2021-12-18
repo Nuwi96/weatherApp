@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/ui/home_view.dart';
+import 'app/ui/main_screen.dart';
 import 'app/ui/screen_one.dart';
 
 void main() {
@@ -19,11 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
       ),
-      home:  const HomeView(),
+      home:  const MainScreen(),
     );
   }
 }

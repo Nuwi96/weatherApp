@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:open_weather_app/app/model/city_model.dart';
-import 'package:open_weather_app/app/services/service.dart';
 import 'package:open_weather_app/app/state/state_management.dart';
+import 'package:open_weather_app/app/ui/side_menu/side_menu.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -12,6 +11,7 @@ class HomeView extends ConsumerWidget {
   Widget build(BuildContext context, watch) {
     final viewModal = watch(cityDetailsStateFuture);
     return Scaffold(
+        drawer: SideMenu(),
         appBar: AppBar(
           title: const Text("Weather App"),
           backgroundColor: Colors.indigo[900],

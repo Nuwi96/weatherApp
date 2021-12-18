@@ -10,60 +10,14 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 
-  @override
-  Widget build(BuildContext context, watch) {
-    final viewModal = watch(cityDetailsStateFuture);
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Weather App"),
-          backgroundColor: Colors.indigo[900],
-        ),
-        body: viewModal.CityModel.isEmpty
-            ? Center(
-                child: Container(
-                  height: 50.0,
-                  width: 50.0,
-                  child: Text(watch(cityDetailsStateFuture).data.toString()),
-                  // child: CircularProgressIndicator(),
-                ),
-              )
-            :
-        ListView.builder(
-                itemCount:viewModal.CityModel.length,
-                // itemCount: watch(cityDetailsStateFuture).data!.value!.list.length == 0,
-                // itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Text(watch(cityDetailsStateFuture)
-                          .data
-                          .value
-                          .list
-                          .elementAt(index)
-                          .name),
-                      Text(watch(cityDetailsStateFuture)
-                          .data
-                          .value
-                          .list
-                          .elementAt(index)
-                          .id),
-                      Text(watch(cityDetailsStateFuture)
-                          .data
-                          .value
-                          .list
-                          .elementAt(index)
-                          .name),
-                      // Text(watch(cityDetailsStateFuture).data!.value!.name),
-                      // Text(index.toString())
-                    ],
-                  );
-                }));
-  }
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    return  Center(
+      child: Text("Seond screen"),
+    );
 //     final viewModal = watch(cityDetailsStateFuture);
 //
 //     return Scaffold(

@@ -24,10 +24,34 @@ class FetchCityDetails extends ChangeNotifier {
     }
   }
 
+
 }
 
 
+class FetchColomboCityDetails extends ChangeNotifier {
+    List colomboDetails =[] ;
+  FetchColomboCityDetails(){
+    print('//////////////////');
+    print('colomboDetails');
+    getColomboDetails();
+  }
 
+  Future getColomboDetails() async {
+    http.Response response = await http.get(Uri.parse(COLOMBO_URL));
+    final items = jsonDecode(response.body);
+    // colomboDetails = items;
+    colomboDetails.add(items);
+    print(colomboDetails[0]["weather"][0]["main"]);
+    print(colomboDetails[0]);
+
+    // colomboDetails.add(items['main']);
+    // colomboDetails.add(items['wind']);
+    // for(int i=0; i< items.length; i++){
+    //   print(items[i]);
+    //   // colomboDetails.add(items[i]);
+    // }
+  }
+}
 
 
 

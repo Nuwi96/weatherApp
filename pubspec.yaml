@@ -38,6 +38,8 @@ dependencies:
 
   flutter_riverpod: ^0.14.0+1
   geolocator: ^5.3.1
+  font_awesome_flutter: ^9.2.0
+  toast: ^0.1.5
 
 
 dev_dependencies:
@@ -67,6 +69,7 @@ flutter:
     - assets/images/cloud.jpg
     - assets/images/wind.png
     - assets/images/temp.jpg
+    - assets/images/wind.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

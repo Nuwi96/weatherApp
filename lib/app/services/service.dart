@@ -39,6 +39,10 @@ class FetchColomboCityDetails extends ChangeNotifier {
   Future getColomboDetails() async {
     http.Response response = await http.get(Uri.parse(COLOMBO_URL));
     final items = jsonDecode(response.body);
+
+    print("getColomboDetails");
+    print(items);
+
     // colomboDetails = items;
     colomboDetails.add(items);
     print(colomboDetails[0]["weather"][0]["main"]);
@@ -55,3 +59,34 @@ class FetchColomboCityDetails extends ChangeNotifier {
 
 
 
+class FetchColomboCity5DayDetails extends ChangeNotifier {
+  List<Map<String, dynamic>> colomboDetails =[] ;
+  FetchColomboCity5DayDetails(){
+    print('//////////////////');
+    print('colomboDetails');
+    getColombo5DayForeCastDetails();
+  }
+
+  Future getColombo5DayForeCastDetails() async {
+    http.Response response = await http.get(Uri.parse(COLOMBO_5DAY_FORECAST));
+    final items = jsonDecode(response.body);
+
+    // colomboDetails = items.list;
+    colomboDetails.add(items);
+    // print(colomboDetails[0]["weather"][0]["main"]);
+    print(colomboDetails[0]['list'][0]['dt_txt']);
+
+  }
+}
+
+
+getFetchSpecificCityDetails(city) async {
+  print('name name name');
+  print(city);
+  http.Response response = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q='+ city +'&appid=cbd8206380cf907632707690f4d9971b'));
+  final items = jsonDecode(response.body);
+  print(items);
+  // colomboDetails = items.list;
+  print('searchDetails');
+
+}

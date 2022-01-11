@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:open_weather_app/app/state/state_management.dart';
 import 'package:open_weather_app/app/ui/side_menu/side_menu.dart';
 
+import 'city_detail_screen.dart';
+
 class HomeView extends ConsumerWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -31,6 +33,12 @@ class HomeView extends ConsumerWidget {
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
+                      TextButton(onPressed: ()=>{
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CityDetailsScreen(name:viewModal.Cities.elementAt(index)['name'] ?? 'Colombo')),
+                        )
+                      }, child:
                       Card(
                           margin: EdgeInsets.all(10),
                           child: ListTile(
@@ -46,6 +54,7 @@ class HomeView extends ConsumerWidget {
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 15)),
                           ))
+                      )
                     ],
                   );
                 }));

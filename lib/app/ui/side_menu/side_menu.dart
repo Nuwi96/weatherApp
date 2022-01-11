@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../carousel_list.dart';
+import '../forecast_screen.dart';
 import '../home_view.dart';
 import '../main_screen.dart';
 import '../screen_one.dart';
@@ -43,29 +45,12 @@ class SideMenu extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
-            onTap: () => {
-            Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => MainScreen()),
-            )
-            },
+            title: Text('5 Day / 3 Hour Forecast'),
+            onTap: () => {Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CarouselList()),
+            )},
           ),
         ],
       ),

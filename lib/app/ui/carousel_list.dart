@@ -24,14 +24,7 @@ class _CarouselListState extends State<CarouselList> {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       search();
-      print("WidgetsBinding");
     });
-    SchedulerBinding.instance!.addPostFrameCallback((_) {
-      print("SchedulerBinding");
-    });
-
-    // WidgetsBinding.instance!
-    //     .addPostFrameCallback((_) => search());
   }
 
   int currentPage = 0;
@@ -56,77 +49,85 @@ class _CarouselListState extends State<CarouselList> {
                     onPressed: () => Scaffold.of(context).openDrawer()),
           ),
         ),
-        body: Container(
-            child: Column(children: [
-          Padding(
-            // fromLTRB(right, bottom, left, top)
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 3),
-            child: TextField(
-              autofocus: false,
-              controller: searchController,
-              cursorColor: Colors.white,
-              decoration: InputDecoration(
-                  hintText: " Search...",
-                  // border: InputBorder.none,
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.search),
-                    color: Color.fromRGBO(93, 25, 72, 1),
-                    onPressed: () {
+        body: data.isEmpty
+            ? Center(
+                child: Container(
+                  height: 50.0,
+                  width: 50.0,
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            : Container(
+                child: Column(children: [
+                Padding(
+                  // fromLTRB(right, bottom, left, top)
+                  padding: const EdgeInsets.fromLTRB(12, 0, 12, 3),
+                  child: TextField(
+                    autofocus: false,
+                    controller: searchController,
+                    cursorColor: Colors.white,
+                    decoration: InputDecoration(
+                        hintText: " Search...",
+                        // border: InputBorder.none,
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.search),
+                          color: Color.fromRGBO(93, 25, 72, 1),
+                          onPressed: () {
+                            search();
+                          },
+                        )),
+                    style: TextStyle(color: Colors.black, fontSize: 15.0),
+                    onChanged: (content) {
+                      // print(searchController.text);
                       search();
                     },
-                  )),
-              style: TextStyle(color: Colors.black, fontSize: 15.0),
-              onChanged: (content) {
-                // print(searchController.text);
-                search();
-              },
-            ),
-          ),
-          ('200' == data['cod'])
-              ? Text(data['city']['name'],
-                  style: const TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w900,
-                      fontStyle: FontStyle.italic))
-              : Container(
-                  child: Text('No Data Found'),
-                ),
-          const Text("5 Day / 3 Hour Forecast",
-              style: TextStyle(
-                  fontSize: 17.0,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w900,
-                  fontStyle: FontStyle.italic)),
-          ('200' == data['cod'])
-              ? Container(
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  width: double.infinity,
-                  child: PageView.builder(
-                    itemBuilder: (context, index) {
-                      return Opacity(
-                        opacity: currentPage == index ? 1.0 : 0.8,
-                        child: CarouselCard(
-                          car: index,
-                          data: data,
-                        ),
-                      );
-                    },
-                    // itemCount: 5,
-                    itemCount: data['list'].length,
-                    controller:
-                        PageController(initialPage: 0, viewportFraction: 0.75),
-                    onPageChanged: (index) {
-                      setState(() {
-                        currentPage = index;
-                      });
-                    },
                   ),
-                )
-              : Container(
-                  child: Text(''),
-                )
-        ])));
+                ),
+                ('200' == data['cod'])
+                    ? Text(data['city']['name'],
+                        style: const TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w900,
+                            fontStyle: FontStyle.italic))
+                    : Container(
+                        child: Text('No Data Found'),
+                      ),
+                const Text("5 Day / 3 Hour Forecast",
+                    style: TextStyle(
+                        fontSize: 17.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w900,
+                        fontStyle: FontStyle.italic)),
+                ('200' == data['cod'])
+                    ? Container(
+                        height: MediaQuery.of(context).size.height * 0.6,
+                        width: double.infinity,
+                        child: PageView.builder(
+                          itemBuilder: (context, index) {
+                            return Opacity(
+                              opacity: currentPage == index ? 1.0 : 0.8,
+                              child: CarouselCard(
+                                car: index,
+                                data: data,
+                              ),
+                            );
+                          },
+                          // itemCount: 5,
+                          itemCount: data['list'].length,
+                          controller: PageController(
+                              initialPage: 0, viewportFraction: 0.75),
+                          onPageChanged: (index) {
+                            setState(() {
+                              currentPage = index;
+                            });
+                          },
+                        ),
+                      )
+                    : Container(
+                        child: Text(''),
+                      )
+              ])));
   }
 
   search() async {

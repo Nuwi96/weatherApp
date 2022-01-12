@@ -59,14 +59,14 @@ class FetchColomboCityDetails extends ChangeNotifier {
 
 
 
-class FetchColomboCity5DayDetails extends ChangeNotifier {
+class FetchColomboCity5DayDetails extends StateNotifier {
   List<Map<String, dynamic>> colomboDetails =[] ;
-  FetchColomboCity5DayDetails(){
-    print('//////////////////');
-    print('colomboDetails');
-    getColombo5DayForeCastDetails();
-  }
-
+  // FetchColomboCity5DayDetails() : super(null){
+  //   print('//////////////////');
+  //   print('colomboDetails');
+  //   getColombo5DayForeCastDetails();
+  // }
+  FetchColomboCity5DayDetails() : super(null);
   Future getColombo5DayForeCastDetails() async {
     http.Response response = await http.get(Uri.parse(COLOMBO_5DAY_FORECAST));
     final items = jsonDecode(response.body);
@@ -77,6 +77,9 @@ class FetchColomboCity5DayDetails extends ChangeNotifier {
     print(colomboDetails[0]['list'][0]['dt_txt']);
 
   }
+}
+
+class colomboDetails {
 }
 
 

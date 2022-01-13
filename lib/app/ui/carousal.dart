@@ -11,29 +11,10 @@ class CarouselCard extends ConsumerWidget {
   CarouselCard({Key? key, required this.car ,required this.data}) : super(key: key);
   @override
   void initState() {
-    search();
-    print('//////////////////////////data');
-    print(data);
+
   }
 
-  // int currentPage = 0;
-  // Map data={};
-  // var text = 'Colombo';
-  search() async {
-    print('//////////////////////////data');
-    print(data);
-    // text = searchController.text.toLowerCase();
-    // http.Response response = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/forecast?q='+ text+'&appid=cbd8206380cf907632707690f4d9971b'));
-    // data = jsonDecode(response.body);
-    // print(jsonDecode(response.body));
-    // print(data['city']['name']);
-    // setState(() async {
-    //   var text = searchController.text.toLowerCase();
-    //   print(text);
-    //
-    //
-    // });
-  }
+
   @override
   Widget build(BuildContext context,watch) {
     return Center(

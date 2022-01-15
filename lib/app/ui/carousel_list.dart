@@ -29,6 +29,7 @@ class _CarouselListState extends State<CarouselList> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SafeArea(
             child: Scaffold(
                 resizeToAvoidBottomInset: false,

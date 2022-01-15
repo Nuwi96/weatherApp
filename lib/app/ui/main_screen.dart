@@ -39,6 +39,7 @@ class _MainScreenScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
             drawer: const SideMenu(),
             // appBar: AppBar(),

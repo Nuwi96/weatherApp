@@ -44,6 +44,7 @@ class _TemCityState extends State<TemCity> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SafeArea(
             child: Scaffold(
                 resizeToAvoidBottomInset: false,

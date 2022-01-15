@@ -24,41 +24,41 @@ class SideMenu extends StatelessWidget {
             )
           ),
           ListTile(
-            leading: Icon(Icons.house_sharp),
-            title: Text('Home'),
+            leading: const Icon(Icons.house_sharp),
+            title: const Text('Home'),
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MainScreen()),
+                MaterialPageRoute(builder: (context) => const MainScreen()),
               )
             },
           ),
           ListTile(
-            leading: Icon(Icons.location_city),
-            title: Text('City List'),
+            leading: const Icon(Icons.location_city),
+            title: const Text('City List'),
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HomeView()),
+                MaterialPageRoute(builder: (context) => const HomeView()),
               )
             },
           ),
           ListTile(
-            leading: Icon(Icons.lock_clock),
-            title: Text('5 Day / 3 Hour Forecast'),
+            leading: const Icon(Icons.lock_clock),
+            title: const Text('5 Day / 3 Hour Forecast'),
             onTap: () => {Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CarouselList()),
+              MaterialPageRoute(builder: (context) => const CarouselList()),
             )},
           ),
           ListTile(
-            leading: Icon(Icons.lock_clock),
+            leading: const Icon(Icons.ten_mp),
             title: const Text('City Temperature'),
             onTap: () => {Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TemCity()),
+              MaterialPageRoute(builder: (context) => const TemCity()),
             )},
-          ),
+          )
         ],
       ),
     );

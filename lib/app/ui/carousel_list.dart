@@ -1,15 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/all.dart';
-import 'package:open_weather_app/app/state/state_management.dart';
 import 'package:open_weather_app/app/ui/side_menu/side_menu.dart';
 import 'package:http/http.dart' as http;
 import 'carousal.dart';
-import '../services/service.dart' as service;
-import 'package:toast/toast.dart';
 
 class CarouselList extends StatefulWidget {
   const CarouselList({Key? key}) : super(key: key);
@@ -62,16 +57,6 @@ class _CarouselListState extends State<CarouselList> {
                       ),
                     ),
                   ),
-                  // AppBar(
-                  //   backgroundColor: Colors.transparent,
-                  //   elevation: 0,
-                  //   leading: Builder(
-                  //     builder: (context) => // Ensure Scaffold is in context
-                  //     IconButton(
-                  //         icon: const Icon(Icons.menu),
-                  //         onPressed: () => Scaffold.of(context).openDrawer()),
-                  //   ),
-                  // ),
                   Center(
                       child: data.isEmpty
                           ? Center(

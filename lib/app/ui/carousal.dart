@@ -2,24 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:open_weather_app/app/state/state_management.dart';
-import 'package:http/http.dart' as http;
 class CarouselCard extends ConsumerWidget {
   var car;
   var data;
-
   CarouselCard({Key? key, required this.car ,required this.data}) : super(key: key);
-  @override
-  void initState() {
-
-  }
-
-
   @override
   Widget build(BuildContext context,watch) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: 5.0,
           left: 8.0,
           right: 8.0,
@@ -30,14 +21,10 @@ class CarouselCard extends ConsumerWidget {
           decoration: BoxDecoration(
             color: Colors.lightBlueAccent,
             borderRadius: BorderRadius.circular(16.0),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                  offset: Offset(0, 20), blurRadius: 10.0),
             ],
-            // image: DecorationImage(
-            //     colorFilter: ColorFilter.mode(
-            //         Colors.black.withOpacity(0.75), BlendMode.dstATop),
-            //     image:AssetImage('assets/images/cloud.jpg'), fit: BoxFit.cover),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,40 +126,6 @@ class CarouselCard extends ConsumerWidget {
                             )
                           ],
                         ),
-
-
-
-
-                        // Text(
-                        //   data['list'][car]['weather'][0]['description'],
-                        //     style: const TextStyle(
-                        // fontSize: 20.0,
-                        // color: Colors.black,
-                        // fontWeight: FontWeight.w900,
-                        //     fontStyle: FontStyle.italic)
-                        // ),
-                        // Text(
-                        //   data['list'][car]['wind']['speed'].toString(),
-                        //     style: const TextStyle(
-                        // fontSize: 20.0,
-                        // color: Colors.black,
-                        // fontWeight: FontWeight.w900,
-                        //     fontStyle: FontStyle.italic)
-                        // ),
-                        // Container(
-                        //   height: 100,
-                        //   width: MediaQuery.of(context).size.width * 0.6,
-                        //   child: Text(
-                        //     data['list'][car]['main']['temp'].toString(),style: const TextStyle(
-                        //   fontSize: 20.0,
-                        //   color: Colors.black,
-                        //   fontWeight: FontWeight.w900,
-                        //       fontStyle: FontStyle.italic),
-                        //     textAlign: TextAlign.start,
-                        //     overflow: TextOverflow.ellipsis,
-                        //     maxLines: 5,
-                        //   ),
-                        // ),
                       ],
                     ),
                   ],

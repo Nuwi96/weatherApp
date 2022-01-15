@@ -1,13 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:open_weather_app/app/state/state_management.dart';
 import 'package:open_weather_app/app/ui/side_menu/side_menu.dart';
 import 'city_detail_screen.dart';
 import 'package:http/http.dart' as http;
-
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -17,7 +13,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   List data = [];
-
   getData() async {
     http.Response response = await http.get(Uri.parse(
         'https://run.mocky.io/v3/bbd19670-31f3-46cb-86c9-340c63acd06f'));
@@ -25,9 +20,6 @@ class _HomeViewState extends State<HomeView> {
       setState(() {
         data = jsonDecode(response.body);
       });
-
-      print('////////////data');
-      print(data);
     } catch (e) {
       return 'failed';
     }
@@ -73,8 +65,6 @@ class _HomeViewState extends State<HomeView> {
                         )
                       : ListView.builder(
                           itemCount: data.length,
-                          // itemCount: watch(cityDetailsStateFuture).data!.value!.list.length == 0,
-                          // itemCount: 5,
                           itemBuilder: (context, index) {
                             return Column(
                               children: [
@@ -113,26 +103,6 @@ class _HomeViewState extends State<HomeView> {
                                                   color: Colors.white)),
                                         ],
                                       ),
-                                      // onTap: () {
-                                      //   Navigator.of(context).push(
-                                      //       MaterialPageRoute(
-                                      //           builder: (context) =>
-                                      //               CityDetailsScreen(
-                                      //                   name: data.elementAt(
-                                      //                               index)[
-                                      //                           'name'] ??
-                                      //                       'Colombo')));
-                                      //
-                                      //   // Navigator.push(
-                                      //   //   context,
-                                      //   //   MaterialPageRoute(
-                                      //   //       builder: (context) =>
-                                      //   //           CityDetailsScreen(
-                                      //   //               name: data.elementAt(
-                                      //   //                       index)['name'] ??
-                                      //   //                   'Colombo')),
-                                      //   // );
-                                      // },
                                     ))
                               ],
                             );

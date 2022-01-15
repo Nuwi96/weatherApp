@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../carousel_list.dart';
 import '../home_view.dart';
 import '../main_screen.dart';
-import '../screen_one.dart';
 import '../temperature.dart';
 
 class SideMenu extends StatelessWidget {
